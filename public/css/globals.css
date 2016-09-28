@@ -1,0 +1,100 @@
+/* Box sizing resets*/
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbars but keep the scroll working */
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* Body resets and fancy font*/
+body{
+    font-family: 'Exo 2', sans-serif;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: rgb(241, 241, 241);
+}
+
+.lolstatus {
+    position: relative;
+}
+
+/*Header*/
+.header {
+    width: 100%;
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    color: rgb(23, 26, 30);
+}
+
+.header .heading {
+    text-align: left;
+    font-weight: bolder;
+    cursor: default;
+    margin-left: 0.2em; 
+}
+
+.header .select {
+    float: right;
+    width: 200px;
+    border: none;
+    background-color: white;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    margin-right: 0.2em;
+    font-size: 16px;
+    font-weight: bold;
+    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("../icons/downicon.png") 96% / 15% no-repeat #eee;
+}
+
+.header .select option {
+    float: right;
+    width: 200px;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header .select option {
+    text-align: left;
+}
+
+/*Service*/
+.service {
+    cursor: default;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 10px;
+    color: rgb(23, 26, 30);
+}
+
+.service .servicename i {
+    padding: 0.5em;
+}
+
+.service i.online {
+    color: rgb(28,157,116);
+}
+
+.service i.notonline {
+    color: rgb(206,77,73);
+}
+
+/*Footer*/
+.footer {
+    padding: 0.5em;
+}
+
+.footer .statuslink {
+    color: rgb(37, 116, 169);
+    cursor: pointer;
+}
