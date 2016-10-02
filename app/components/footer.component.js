@@ -1,7 +1,4 @@
-var electron = window.require('electron');
-var ipcRenderer = window.require('electron').ipcRenderer;
-var remote = electron.remote;
-var BrowserWindow = remote.BrowserWindow;
+var open = window.require('open');
 
 import React from 'react';
 
@@ -9,19 +6,7 @@ class Footer extends React.Component {
     openStream(shard) {
         var url = "http://status.leagueoflegends.com/#" + shard; 
         console.log(url)
-        var streamWindow = new BrowserWindow({
-            width: 800,
-            height: 600,
-            show: true,
-            webPreferences: {
-                nodeIntegration: false
-            }
-        })
-        streamWindow.loadURL(url);
-
-        streamWindow.on('close', function(){
-            streamWindow.destroy();
-        });
+        open(url);
     }
 
     render() {
