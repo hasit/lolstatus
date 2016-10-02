@@ -89,6 +89,14 @@ body{
     color: rgb(206,77,73);
 }
 
+.service .update {
+    padding: 0.5em;
+}
+
+.service .update .updated_at {
+    font-weight: bold;
+}
+
 /*Footer*/
 .footer {
     padding: 0.5em;

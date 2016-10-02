@@ -10,14 +10,14 @@ class ShardSelect extends React.Component {
     handleChange(event) {
         let _this = this;
         _this.getShard(event.target.value);
+        
     }
 
     // TODO: Convert select -> dropdown for better styling options.
     render() {
         var shards = this.props.shards;
-        var options = [];
-        shards.map(function(shard, i){
-            options.push(<option key={i} value={shard.slug}>{shard.name}</option>)
+        var options = shards.map(function(shard, i){
+            return (<option key={i} value={shard.slug}>{shard.name}</option>)
         });
 
         return(

@@ -1,5 +1,5 @@
 import React from 'react';
-import Incidents from './incidents.component'
+import IncidentList from './incidentlist.component'
 
 class Service extends React.Component {
     render() {
@@ -8,15 +8,20 @@ class Service extends React.Component {
             isOnline = true;
         }
 
-        var incidents = [];
-        if (this.props.incidents[0] != null) {
-            console.log(incidents[0]);
+        var incidents = this.props.incidents;
+        var incidentList = [];
+        if (incidents.length != 0) {
+            incidentList = incidents.map(function (incident, i) {
+                return <IncidentList key={i} active={incident.active} updates={incident.updates} />
+            });
         }
 
-        return(
+        return (
             <div className="service">
                 <span className="servicename"><i className={isOnline ? "fa fa-circle online" : "fa fa-circle notonline"}></i>{this.props.name}</span>
-                <span className=""></span>
+                <div className="incidents">
+                    {incidentList}
+                </div>
             </div>
         );
     }

@@ -20,17 +20,20 @@ var isDarwin = (process.platform === 'darwin');
 var isLinux = (process.platform === 'linux');
 var isWindows = (process.platform === 'win32');
 
-app.on('ready', function() {
+app.on('ready', function () {
   var cachedBounds;
   var windowPosition = (isWindows) ? 'trayBottomCenter' : 'trayCenter';
   var appIcon = new Tray(trayIcon);
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Exit', click: function () { app.quit(); } }
+  ]);
 
-  function hideWindow () {
+  function hideWindow() {
     if (!appIcon.window) { return; }
     appIcon.window.hide();
   }
 
-  function initWindow () {
+  function initWindow() {
     var defaults = {
       width: 400,
       height: 350,
@@ -48,19 +51,10 @@ app.on('ready', function() {
     appIcon.window.on('blur', hideWindow);
     appIcon.window.setVisibleOnAllWorkspaces(true);
 
-    appIcon.window.webContents.on('devtools-opened', (event, deviceList, callback) => {
-      appIcon.window.setSize(400, 350);
-      appIcon.window.setResizable(true);
-    });
-
-    appIcon.window.webContents.on('devtools-closed', (event, deviceList, callback) => {
-      appIcon.window.setSize(400, 350);
-      appIcon.window.setResizable(false);
-    });
-    // app.dock.hide();
+    app.dock.hide();
   }
 
-  function showWindow (trayPos) {
+  function showWindow(trayPos) {
     var noBoundsPosition;
     if (!isDarwin && trayPos !== undefined) {
       var displaySize = electron.screen.getPrimaryDisplay().workAreaSize;
@@ -102,11 +96,15 @@ app.on('ready', function() {
     showWindow(cachedBounds);
   });
 
-  ipc.on('reopen-window', function() {
+  appIcon.on('right-click', function () {
+    appIcon.popUpContextMenu(contextMenu);
+  });
+
+  ipc.on('reopen-window', function () {
     showWindow(cachedBounds);
   });
 
-  ipc.on('app-quit', function() {
+  ipc.on('app-quit', function () {
     app.quit();
   });
 

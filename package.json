@@ -12,6 +12,13 @@
     "name": "Hasit Mistry",
     "email": "hasitnm@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasit/lolstatus"
+  },
+  "bugs": {
+    "url": "https://github.com/hasit/lolstatus/issues"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.9.1",
@@ -23,6 +30,7 @@
     "electron-prebuilt": "^0.36.0",
     "electron-reload": "^0.2.0",
     "jquery": "^2.2.3",
+    "open": "0.0.5",
     "path": "^0.12.7",
     "react": "^0.14.8",
     "react-dom": "^0.14.7",
