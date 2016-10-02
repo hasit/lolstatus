@@ -14,11 +14,19 @@ var Positioner = require('electron-positioner');
 
 require('electron-reload')(__dirname);
 
-var trayIcon = path.join(__dirname, 'public', 'icons', 'lol.png');
-
 var isDarwin = (process.platform === 'darwin');
 var isLinux = (process.platform === 'linux');
 var isWindows = (process.platform === 'win32');
+
+var trayIcon;
+
+// Determine appropriate icon for platform
+if (isDarwin) {  
+    trayIcon = path.join(__dirname, 'public', 'icons', 'osx', 'icon.png');
+}
+else if (isWindows) {  
+    trayIcon = path.join(__dirname, 'public', 'icons', 'win', 'tray.ico');
+}
 
 app.on('ready', function () {
   var cachedBounds;
