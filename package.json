@@ -6,7 +6,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "watch": "watchify app/app.js -t babelify -o public/js/bundle.js --debug --verbose"
+    "watch": "watchify app/app.js -t babelify -o public/js/bundle.js --debug --verbose",
+    "build:macos": "electron-packager . \"LoL Status\" --overwrite --out=dist/osx --platform=darwin --arch=x64 --icon=public/icons/icon.icns --prune --ignore=dist --ignore=app --ignore=assets --ignore=README.md --ignore=.gitignore --ignore=.babelrc",
+    "build:win": "electron-packager . \"LoL Status\" --overwrite --out=dist/win --platform=win32 --arch=x64 --icon=public/icons/win/icon.ico --prune --ignore=dist --ignore=app --ignore=assets --ignore=README.md --ignore=.gitignore --ignore=.babelrc"
   },
   "author": {
     "name": "Hasit Mistry",

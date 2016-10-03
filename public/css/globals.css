@@ -11,9 +11,7 @@
 /* Body resets and fancy font*/
 body{
     font-family: 'Exo 2', sans-serif;
-    -webkit-app-region: drag;
-    -webkit-user-select: none;
-    user-select: none;
+    -webkit-app-region: no-drag;
     background-color: rgb(241, 241, 241);
 }
 
@@ -27,6 +25,8 @@ body{
     font-size: 2em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    -webkit-user-select: none;
+    user-select: none;
     color: rgb(23, 26, 30);
 }
 
