@@ -1,6 +1,6 @@
 # LoL Status
 
-'LoL Status' is an application that sits in your menubar and shows the status League of Legends services . All 11 regions  are supported.
+**LoL Status** is an application that sits in your menubar and shows the status League of Legends services . All 11 regions  are supported.
 
 ![LoL Status](./assets/lolstatus.gif)
 
@@ -18,11 +18,7 @@ Todo:
 - Make a 'Settings' page where the user can change
     - Refresh rate of service status
     - Choose default region
-- Make region selection persistent across opening and closing of application 
-
-## Installing
-
-Mac OSX binary is available is available to download.
+- Make region selection persistent across opening and closing of application
 
 ## Developing
 
